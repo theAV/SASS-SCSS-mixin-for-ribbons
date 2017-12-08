@@ -1,0 +1,32 @@
+// just reset css
+@import "reset";
+
+
+// grab css from below
+@import "variables";
+@import "mixins/ribbon-mixin";
+
+//block class 
+.ribbon {
+	text-align: center;
+    position: relative;
+    display: inline-block;
+    @include createRibbon();
+}
+
+.ribbon--red{
+	@include ribbon-paint(map-get(map-get($robbon-settings, primary), base), map-get(map-get($robbon-settings, primary), color));
+}
+.ribbon--yellow{
+	@include ribbon-paint(map-get(map-get($robbon-settings, secondary), base), map-get(map-get($robbon-settings, secondary), color));
+}
+.ribbon--success{
+	@include ribbon-paint(map-get(map-get($robbon-settings, success), base), map-get(map-get($robbon-settings, success), color));
+}
+.ribbon-sm{
+	@include ribbon-sizing(12px, 10px, 12px, 5px, 8px);
+}
+
+.ribbon-lg{
+	@include ribbon-sizing(20px, 10px, 18px, 12px, 12px);
+}
